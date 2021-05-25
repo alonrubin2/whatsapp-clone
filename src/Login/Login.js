@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
-import {v4 as uuidV4} from 'uuid';
+import { Button, Container, Form } from 'react-bootstrap';
+
+import { v4 as uuidV4 } from 'uuid';
 import './Login.scss';
 
-const Login = ({onIdSubmit}) => {
+const Login = ({ onIdSubmit }) => {
 
     const idRef = useRef();
 
@@ -14,17 +16,18 @@ const Login = ({onIdSubmit}) => {
     function createNewId() {
         onIdSubmit(uuidV4());
     }
-    
-    return (
-        <div className="Login">
-            <form className="login-form" onSubmit={submit}>
-                <label for="username">Please Ente Your Username</label>
-                <input name="username" id="username" ref={idRef} required />
-                <button type="submit">Login</button>
-                <button type="submit" onClick={createNewId}>Create a new User</button>
 
-            </form>
-        </div>
+    return (
+        <Container className="align-items-center d-flex" style={{ height: '100vh' }}>
+            <Form onSubmit={submit} className="w-100">
+                <Form.Group>
+                    <Form.Label>Enter Your Id</Form.Label>
+                    <Form.Control type="text" ref={idRef} required />
+                </Form.Group>
+                <Button type="submit" className="mr-2" onSubmit={submit}>Login</Button>
+                <Button variant="secondary" className="mr-2" onClick={createNewId}>Create A New Id</Button>
+            </Form>
+        </Container>
     );
 }
 
