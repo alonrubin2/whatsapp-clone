@@ -27,7 +27,7 @@ const NewContactModal = ({ closeModal }) => {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" ref={idRef} required />
+                        <Form.Control type="text" ref={nameRef} required />
                     </Form.Group>
                     <Button type="submit" style={{ marginTop: 10 }}>Create</Button>
                 </Form>

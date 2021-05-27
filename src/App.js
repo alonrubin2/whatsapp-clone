@@ -5,6 +5,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 import Login from './Login/Login';
 import Dashboard from './Dashbord/Dashboard';
 import { ContactsProvider } from './contexts/ContactsProvider';
+import { ConversationsProvider } from '../src/contexts/ConversationsProvider';
 
 function App() {
 
@@ -12,14 +13,16 @@ function App() {
 
   const dashboard = (
     <ContactsProvider>
-      <Dashboard id={id}/>
+      <ConversationsProvider>
+        <Dashboard id={id} />
+      </ConversationsProvider>
     </ContactsProvider>
   )
 
-  
+
 
   return (
-     id ? dashboard : <Login onIdSubmit={setId} />
+    id ? dashboard : <Login onIdSubmit={setId} />
   );
 }
 
